@@ -4,7 +4,7 @@ from app.services.interfaces.openai_service_interace import IOpenAIService
 
 class OpenAIService(IOpenAIService):
     def __init__(self):
-        self.client = openai.OpenAI(api_key="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")
+        self.client = openai.OpenAI(api_key="")
 
     async def analyze_data(self, data: dict, schema: str = None) -> str:
         try:
