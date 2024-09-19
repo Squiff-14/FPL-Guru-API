@@ -968,3 +968,619 @@ Traceback (most recent call last):
     await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:41:11,407 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::c14466922ddbf11fd04b375625cee7c6' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:41:11,410 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:41:12,088 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:41:16,219 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 277, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 278, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\commands\core.py", line 2333, in set
+    return self.execute_command("SET", *pieces, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\client.py", line 545, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 1074, in get_connection
+    connection.connect()
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-09-19 13:41:20,338 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::c14466922ddbf11fd04b375625cee7c6' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 277, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\retry.py", line 62, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 278, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\commands\core.py", line 2333, in set
+    return self.execute_command("SET", *pieces, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\client.py", line 545, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 1074, in get_connection
+    connection.connect()
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\redis\connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-09-19 13:53:10,040 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::3e51caf2ca6ced0f895c9273b032c347' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:53:10,042 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:53:10,896 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:53:10,986 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:53:11,059 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::3e51caf2ca6ced0f895c9273b032c347' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:53:20,327 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::613c7b9696c67d0dc0d83f41993b47fb' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:53:20,329 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:53:20,962 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:53:21,023 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:53:21,048 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::613c7b9696c67d0dc0d83f41993b47fb' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:04,436 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::b4f66b84499d3d41cd40172fe757cb1b' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:04,438 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:05,206 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:05,283 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::5ffa39fb15583f1efd7bf90288b048b7' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:05,302 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::b4f66b84499d3d41cd40172fe757cb1b' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:12,637 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::730c1eb4f9082a52583ef75b8fbadbc2' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:12,640 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::ff8e453e911d6274af592da2398e47a4' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:13,373 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:13,465 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::ff8e453e911d6274af592da2398e47a4' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:13,484 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::730c1eb4f9082a52583ef75b8fbadbc2' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:15,258 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::842baf5ad55fa4227f07d3dc37668c69' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:15,259 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::7f176d37b7b0c2ba6dce51b292aecf5f' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:15,893 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:15,944 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::7f176d37b7b0c2ba6dce51b292aecf5f' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:15,963 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::842baf5ad55fa4227f07d3dc37668c69' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:18,110 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::7bd02b1369b1bbf9050c3ba51ce64f43' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:18,111 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::28944dfbe4538e08bf380945064ad5e0' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:18,746 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:18,798 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::28944dfbe4538e08bf380945064ad5e0' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:18,865 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::7bd02b1369b1bbf9050c3ba51ce64f43' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:22,684 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::369c058b60dc5dd3e26dc219be6cee5b' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:22,686 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:23,327 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:23,388 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:23,413 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::369c058b60dc5dd3e26dc219be6cee5b' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:47,258 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::d928c8d269aa2f61a7c8419b7911f522' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:47,259 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::07e37baed719be52b453d6e4cd1a2eb0' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:47,899 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:47,953 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::07e37baed719be52b453d6e4cd1a2eb0' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:47,957 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::d928c8d269aa2f61a7c8419b7911f522' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:57,394 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::d24bc15e52299afe75dd1415a6fc96d0' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:57,396 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:54:58,110 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:54:58,163 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:54:58,168 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::d24bc15e52299afe75dd1415a6fc96d0' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:00,999 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::f4dfd7b4eb301f54bff9d62acc224816' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:01,000 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:01,693 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:55:01,803 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:01,829 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::f4dfd7b4eb301f54bff9d62acc224816' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:13,330 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::871e660140f8c0c951d7eff8b5639a55' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:13,332 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:14,007 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:55:14,092 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:14,097 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::871e660140f8c0c951d7eff8b5639a55' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:22,047 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::219ec09cfc7201bce98bbd630d490604' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:22,049 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:22,699 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:55:22,750 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::be7482eb89af5b9860d065ee6df42446' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:22,812 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::219ec09cfc7201bce98bbd630d490604' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:35,726 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::d97dd3edd7c4d1b0d7697e8ea00ae28f' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:35,728 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::1a0207673b364ddb2dfecf401deb2f43' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:36,449 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:55:36,512 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::1a0207673b364ddb2dfecf401deb2f43' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:36,561 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::d97dd3edd7c4d1b0d7697e8ea00ae28f' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:47,237 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::ed47f80929cf7a118886ae0d90abe690' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:47,240 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::99eb5a7e3d8b455aeabad4aa4525d30b' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 13:55:47,935 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 13:55:48,004 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::99eb5a7e3d8b455aeabad4aa4525d30b' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 13:55:48,051 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::ed47f80929cf7a118886ae0d90abe690' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 14:48:22,134 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::6ca42d7ea16cbd0fc52478af1544581a' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 14:48:22,136 - fastapi_cache.decorator - WARNING - Error retrieving cache key 'fpl_cache::3f816a3f1fee891b5bfb7d9a95248562' from backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 178, in inner
+    ttl, cached = await backend.get_with_ttl(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 15, in get_with_ttl
+    async with self.redis.pipeline(transaction=not self.is_cluster) as pipe:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pipeline' object does not support the asynchronous context manager protocol
+2024-09-19 14:48:22,893 - httpx - INFO - HTTP Request: GET https://fantasy.premierleague.com/api/bootstrap-static/ "HTTP/1.1 200 OK"
+2024-09-19 14:48:23,000 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::3f816a3f1fee891b5bfb7d9a95248562' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
+2024-09-19 14:48:23,050 - fastapi_cache.decorator - WARNING - Error setting cache key 'fpl_cache::6ca42d7ea16cbd0fc52478af1544581a' in backend:
+Traceback (most recent call last):
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\decorator.py", line 191, in inner
+    await backend.set(cache_key, to_cache, expire)
+  File "C:\private\python\FPL-Guru-API\.venv\Lib\site-packages\fastapi_cache\backends\redis.py", line 22, in set
+    await self.redis.set(key, value, ex=expire)  # type: ignore[union-attr]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object bool can't be used in 'await' expression
